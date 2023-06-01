@@ -1,0 +1,39 @@
+
+
+    <h1>Displaying List of Users: </h1>
+    <!--  property binding -->
+    <!-- <ul>
+      <li *ngFor="let user of users" [style.fontSize.px]="user.age">{{ user.label }}</li>
+    </ul> -->
+
+    <!-- ngCLass -->
+    <!-- <ul>
+      <li *ngFor="let user of users" [ngStyle]="{ 'font-size.px': user.age }" [ngClass]="{ 'he': user.gender === 'M', 'she': user.gender === 'F' }">
+        {{ user.label }}
+      </li>
+    </ul> -->
+<!-- ngIf,then,else and ngSwitch,case -->
+    <div *ngIf="users.length > 0; then userList else noUsers">Yes User exist</div>
+
+    <ng-template #userList>
+      <ul>
+        <li *ngFor="let user of users; let i = index" [ngStyle]="{ 'font-size.px': user.age }">
+          <div [ngSwitch]="user.gender">
+            <div *ngSwitchCase="'M'" class="he">{{ i + 1 }} - {{ user.label }}</div>
+            <div *ngSwitchCase="'F'" class="she">{{ i + 1 }} - {{ user.label }}</div>
+          </div>
+        </li>
+      </ul>
+    </ng-template>
+    
+    <ng-template #noUsers>
+      <p>No users available.</p>
+    </ng-template>
+    
+    
+    
+    
+<!-- <app-sec></app-sec> -->
+<!-- <div appHightLight> I make a impact</div> -->
+    
+

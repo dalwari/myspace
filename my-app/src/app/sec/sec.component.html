@@ -1,0 +1,14 @@
+<h1>{{title }}</h1>
+<ul>
+    <li *ngFor="let car of carsList">
+      {{ car.carsBrand }} - {{ car.carsCountry }}
+    </li>
+  </ul>
+  <h1>Displaying List of People</h1>
+  <ul>
+    <li *ngFor="let person of people">{{ person }}</li>
+  </ul>
+  <h1>DropDown for frameworks</h1>
+  <select>
+    <option *ngFor="let framework of frameworks" [value]="framework">{{ framework }}</option>
+  </select>
